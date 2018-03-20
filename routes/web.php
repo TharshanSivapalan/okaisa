@@ -15,3 +15,9 @@
  * Accueil
  */
 Route::get('/', 'WelcomeController@index')->name('welcome');
+
+/**
+ * Authentification
+ */
+Route::get('/login', 'AuthController@index')->name('login');
+Route::post('/login', 'AuthController@login');
