@@ -21,3 +21,5 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
  */
 Route::get('/login', 'AuthController@index')->name('login');
 Route::post('/login', 'AuthController@login');
+Route::get('/logout', 'AuthController@logout')->name('logout');
+

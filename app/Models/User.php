@@ -16,6 +16,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $last_name
  * @property string $first_name
  * @property string $email
+ * @property string $password
  * @property int $active
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
@@ -29,7 +30,7 @@ class User extends Eloquent
 
 	protected $casts = [
 		'active' => 'int',
-		'id_facebook' => 'int'
+        'password' => 'string'
 	];
 
 	protected $hidden = [
@@ -38,8 +39,10 @@ class User extends Eloquent
 
 	protected $fillable = [
 		'email',
+        'last_name',
+        'first_name',
+        'password',
 		'active',
-		'remember_token',
-        'password'
+		'remember_token'
 	];
 }

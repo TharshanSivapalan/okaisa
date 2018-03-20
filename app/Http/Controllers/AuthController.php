@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Helpers\Helpers;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -38,13 +39,33 @@ class AuthController extends Controller
             return;
         }
 
-        $userExist = User::select('id_user')->where(['email' => $email, 'password' => Hash::make($password)])->count();
-        if ($userExist == 0)
+        $userExist = User::select('id_user', 'password')->where('email', $email)->first();
+        if ($userExist == null)
+        {
+            echo "Vos identifiants sont incorrects.";
+            return;
+        }
+        if (!Hash::check($password, $userExist->password))
         {
             echo "Vos identifiants sont incorrects.";
             return;
         }
 
+        // On créé la session
+        session()->put('user', $email);
         echo "OK";
+    }
+
+    /**
+     * logout
+     */
+    public function logout(Request $request)
+    {
+        if(Helpers::isAuth()) {
+            session()->flush();
+            echo "Vous avez été déconnecté.";
+        } else {
+            echo "Vous êtes déjà déconnecté.";
+        }
     }
 }
