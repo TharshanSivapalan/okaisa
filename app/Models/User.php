@@ -15,9 +15,14 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property int $id_user
  * @property string $last_name
  * @property string $first_name
+ * @property string $country
+ * @property string $city
+ * @property string $phone
+ * @property string $need
  * @property string $email
  * @property string $password
  * @property int $active
+ * @property int $first_connection
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -42,7 +47,12 @@ class User extends Eloquent
         'last_name',
         'first_name',
         'password',
+        'country',
+        'city',
+        'phone',
+        'need',
 		'active',
+        'first_connection',
 		'remember_token'
 	];
 }

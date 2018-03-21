@@ -72,7 +72,7 @@
                 </div>
 
                 <div>
-                    {!! Form::open(['url' => '', 'method' => 'post']) !!}
+                    {!! Form::open(['url' => 'register', 'method' => 'post']) !!}
                         {{ Form::label('email', 'E-mail' )}}<br>
                         {{ Form::text('email','',array('required' => 'required')) }}
                         <br>
