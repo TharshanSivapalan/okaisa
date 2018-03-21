@@ -28,3 +28,8 @@ Route::get('/logout', 'AuthController@logout')->name('logout');
  */
 Route::get('/register', 'RegisterController@index')->name('register');
 Route::post('/register', 'RegisterController@createAccount');
+
+/**
+ * Chatbot
+ */
+Route::get('/chatbot', 'ChatbotController@index')->name('chatbot');
