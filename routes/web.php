@@ -23,3 +23,8 @@ Route::get('/login', 'AuthController@index')->name('login');
 Route::post('/login', 'AuthController@login');
 Route::get('/logout', 'AuthController@logout')->name('logout');
 
+/**
+ * Inscription
+ */
+Route::get('/register', 'RegisterController@index')->name('register');
+Route::post('/register', 'RegisterController@createAccount');
