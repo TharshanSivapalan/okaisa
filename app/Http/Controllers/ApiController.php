@@ -11,26 +11,116 @@ class ApiController extends Controller
     {
         // On récupère le body du Request reçu
         $jsonRequest = json_decode($request->getContent(), true);
-        //file_put_contents("C:\\file.txt", $request->getContent());
         if(isset($jsonRequest['result']['action'])) {
             $action = $jsonRequest['result']['action'];
         } else {
             // 400:Bad Request
-            abort(400);
+            return response("{\"error\":\"Aucune action détecté.\"}", 400)
+                ->header('Content-Type', 'application/json');
         }
 
+        // Intent météo
         if($action == 'action.meteo') {
-            return $this->meteo($jsonRequest);
+            return $this->weather($jsonRequest);
         }
+
+        // Intent Habille
+        if($action == 'Habiller.Habiller-no') {
+            return $this->dressNo($jsonRequest);
+        }
+        if($action == 'Habiller.Habiller-yes.professionnel') {
+            return $this->dressYesPro($jsonRequest);
+        }
+        if($action == 'Habiller.Habiller-yes.night') {
+            return $this->dressYesNight($jsonRequest);
+        }
+        if($action == 'Habiller.Habiller-yes.mariage') {
+            return $this->dressYesWed($jsonRequest);
+        }
+        if($action == 'Habiller.Habiller-yes.personnel') {
+            return $this->dressYesPerso($jsonRequest);
+        }
+
     }
 
-    private function meteo($jsonRequest)
+    private function dressNo($jsonRequest)
     {
         //On valide les paramètres reçu
-        if( !isset($jsonRequest['result']['parameters']) ) {
-            if( !isset($jsonRequest['result']['parameters']['date']) ) {
-                abort(400);
+        if( !isset($jsonRequest['result']['contexts']) ) {
+            return response("{\"error\":\"Paramètres manquant.\"}", 400)
+                ->header('Content-Type', 'application/json');
+        }
+
+        foreach($jsonRequest['result']['contexts'] as $context) {
+            if(stripos($context['name'], 'habiller-followup') !== false) {
+                $gender = $context['parameters']['genre'];
+                break;
             }
+        }
+        if(!isset($gender)) {
+            return response("{\"error\":\"Aucune action détecté.\"}", 400)
+                ->header('Content-Type', 'application/json');
+        }
+
+        if(stripos($gender, 'Homme') !== false) {
+            $response = "Je peux vous conseiller un pantalon.";
+        } else if(stripos($gender, 'Femme') !== false) {
+            $response = "Je peux vous conseiller une robe.";
+        } else {
+            $response = "Je peux vous conseiller un autre chose.";
+        }
+
+        $resChat = "{
+              \"speech\": \"".$response."\",
+              \"displayText\": \"".$response."\"
+            }";
+        // On retourne la réponse à DialogFlow
+        return response($resChat, 200)
+            ->header('Content-Type', 'application/json');
+    }
+
+    private function dressYesPro($jsonRequest)
+    {
+        //On valide les paramètres reçu
+        if( !isset($jsonRequest['result']['contexts']) ) {
+            return response("{\"error\":\"Paramètres manquant.\"}", 400)
+                ->header('Content-Type', 'application/json');
+        }
+
+        foreach($jsonRequest['result']['contexts'] as $context) {
+            if(stripos($context['name'], 'habiller-followup') !== false) {
+                $gender = $context['parameters']['genre'];
+            }
+        }
+        if(!isset($gender)) {
+            return response("{\"error\":\"Aucune action détecté.\"}", 400)
+                ->header('Content-Type', 'application/json');
+        }
+
+        if(stripos($gender, 'Homme') !== false) {
+            $response = "Je peux vous conseiller un costume.";
+        } else if(stripos($gender, 'Femme') !== false) {
+            $response = "Pour votre rendez-vous je vous conseille une tenue simple, avec un chemisier, une veste blaser et un pantalon cigarette.";
+        } else {
+            $response = "Je peux vous conseiller un autre chose.";
+        }
+
+        $resChat = "{
+              \"speech\": \"".$response."\",
+              \"displayText\": \"".$response."\"
+            }";
+        // On retourne la réponse à DialogFlow
+        return response($resChat, 200)
+            ->header('Content-Type', 'application/json');
+    }
+
+    private function weather($jsonRequest)
+    {
+        //On valide les paramètres reçu
+        if( !isset($jsonRequest['result']['parameters'])
+            || !isset($jsonRequest['result']['parameters']['date']) ) {
+            return response("{\"error\":\"Paramètres manquant.\"}", 400)
+                ->header('Content-Type', 'application/json');
         }
         $pDate = $jsonRequest['result']['parameters']['date'];
 
