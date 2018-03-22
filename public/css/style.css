@@ -11,7 +11,7 @@
 *
 * ======================================================= */
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Comfortaa", cursive;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
@@ -24,8 +24,9 @@ a.bouton2 {
   background: #FF6501;
   color: #fff;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
   border-radius: 5px;
+  font-family: 'Amatic SC', cursive;
 }
 a.bouton2:hover {
   background: #570906;
@@ -49,6 +50,26 @@ test_logo_index {
   height: 500px;
   width: 100%;
 }
+
+.test_bann_ass {
+  height: 400px;
+}
+
+.bann_ass{
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+  padding-top: 100px;
+
+}
+
+.text_bann{
+  color:#FFFFFF;
+  font-size: 40px;
+  z-index: 40000;
+}
+
+.
 .profile_pict{
   height:300px;
   width:300px;
@@ -60,6 +81,11 @@ test_logo_index {
 
 .profile_pict img{
   width:303px;
+  margin-top: 50px;
+}
+
+.profile_pict_ass img{
+  width:80px;
 }
 
 #page {
@@ -112,7 +138,7 @@ p {
 
 h1, h2, h3, h4, h5, h6, figure {
   color: #000;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Comfortaa", cursive;
   font-weight: 400;
   margin: 0 0 20px 0;
 }
@@ -910,15 +936,116 @@ form label {
 #gtco-subscribe {
   background: #0098EF;
 }
+.form_profile {
+  background: #FFF;
+  font-family: 'Comfortaa', cursive;
+}
 #gtco-subscribe .form-control {
   background: transparent;
   color: #fff;
   font-size: 16px !important;
   width: 100%;
-  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+}
+
+.form_radiobtn {
+  width: 8%;
+}
+
+
+.radio-wrapper {
+  height:20px;
+  padding:1px 0 0 6px;
+  margin-left: 15px;
+  display:inline-block;
+  cursor:pointer;
+  box-sizing:border-box;
+
+}
+
+.radio-wrapper .radio-bg {
+  width:20px;
+  height:20px;
+  background-color:#606561;
+  display:inline-block;
+  float:left;
+  box-sizing:border-box;
+  border-radius:50%;
+}
+
+.radio-wrapper.invert .radio-bg {
+  background-color:#fff;
+  border:1px #606561 solid;
+}
+
+
+
+.radio-wrapper input {
+  float: left;
+  margin-left: -20px;
+  visibility:hidden;
+
+}
+
+.radio-wrapper .radio-label{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float:left;
+  margin-left:4px;
+  margin-top:4px;
+  font-size:16px;
+
+}
+
+.radio-wrapper .dot {
+  width: 12px;
+  height: 13px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  position: relative;
+  display: block;
+  z-index: 100;
+  float: left;
+  left: -1px;
+  top: -2px;
+  margin-left: -15px;
+  margin-top: 5px;
+}
+
+.radio-wrapper.invert .dot {
+  background-color:#606561;
+}
+
+input[type="radio"]:checked + .dot {
+  opacity:1;
+}
+
+form {
+  margin-top:20px;
+  font-family:sans-serif;
+  color:#666;
+  font-weight:300;
+}
+
+.prompt {
+  margin-bottom: 20px;
+  margin-left: 17px;
+}
+
+
+
+.form-control_profile {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #000;
 }
 #gtco-subscribe .form-control:focus {
   background: transparent;
@@ -1266,8 +1393,8 @@ form label {
 .btn {
   margin-right: 4px;
   margin-bottom: 4px;
-  font-family: "Roboto", Arial, sans-serif;
-  font-size: 16px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 28px;
   font-weight: 400;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1448,14 +1575,19 @@ ul.gtco-social-icons img {
   opacity: 1;
 }
 
+.profil_form{
+  margin-bottom: 30px;
+}
+
+
 .form-control {
   box-shadow: none;
   background: transparent;
-  border: 2px solid rgba(0, 0, 0, 0.1);
+ /* border: 2px solid rgba(0, 0, 0, 0.1);*/
   height: 46px;
   font-size: 16px;
   font-weight: 300;
-  padding-left: 15px;
+  padding-left: 2px;
   padding-right: 15px;
 }
 .form-control:active, .form-control:focus {
@@ -1971,6 +2103,7 @@ ul.gtco-social-icons img {
   margin: 0 1px 0 1px;
   position: absolute;
   width: 100%;
+  display: none;
 }
 
 .list {

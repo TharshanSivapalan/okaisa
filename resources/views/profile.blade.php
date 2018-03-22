@@ -90,8 +90,8 @@
                             <div id="dropDown" class="row">
                                 <div class="col-lg-12">
                                     <ul class="list list-unstyled text-center">
-                                        <li><a class="sous-menu" href="#">A propos</a></li>
-                                        <li><a class="sous-menu" href="#">Mon assitant</a></li>
+                                        <li><a class="sous-menu" href="profile">A propos</a></li>
+                                        <li><a class="sous-menu" href="assistant">Mon assitant</a></li>
                                         <li><a class="sous-menu" href="#">Contact</a></li>
                                     </ul>
                                 </div>
@@ -99,7 +99,7 @@
                         </div>
 
                         <div class=" test_logo_profile test_logo row">
-                            <div class="profile_pict">
+                            <div class="profile_pict text-center">
                                 <img src="images/portrait-ellipse1.png">
 
                                 <h2 class="center-text">Ariel Laroche</h2>
@@ -122,40 +122,84 @@
     <div class="gtco-section border-bottom">
         <div class="gtco-container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-12 animate-box">
-                        <h3 class="style_text">Un probleme? Une suggestion? Contacter-nous!</h3>
+                <div class="col-md-6 col-md-offset-3 profil_form">
+                    <div class="col-md-12 form_profile animate-box ">
+                        <h3 class="style_text">Informations personelles</h3>
                         <form action="#">
                             <div class="row form-group">
-                                <div class="col-md-12">
-                                    <label class="sr-only" for="name">Name</label>
-                                    <input type="text" id="name" class="form-control" placeholder="Your firstname">
+                                <div class="col-md-8">
+
+                                    <input type="text" id="nom" class="form-control_profile form-control" placeholder="Nom">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-8">
+
+                                    <input type="text" id="prénom" class="form-control_profile form-control" placeholder="Prénom">
                                 </div>
 
                             </div>
 
                             <div class="row form-group">
-                                <div class="col-md-12">
-                                    <label class="sr-only" for="email">Email</label>
-                                    <input type="text" id="email" class="form-control" placeholder="Your email address">
+                                <div class="col-md-8">
+
+                                    <input type="text" id="email" class="form-control_profile form-control" placeholder="Adresse email*">
                                 </div>
                             </div>
 
                             <div class="row form-group">
-                                <div class="col-md-12">
-                                    <label class="sr-only" for="subject">Subject</label>
-                                    <input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
+                                <div class="col-md-8">
+
+                                    <input type="password" id="password" class="form-control_profile form-control" placeholder="Mot de passe">
                                 </div>
                             </div>
 
                             <div class="row form-group">
-                                <div class="col-md-12">
-                                    <label class="sr-only" for="message">Message</label>
-                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Write us something"></textarea>
+                                <div class="col-md-8">
+
+                                    <input type="text" class="form-control_profile form-control" placeholder="Numéro de téléphone">
                                 </div>
                             </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-8">
+                                    <input type="text" id="pays" class="form-control_profile form-control" placeholder="Pays">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-8">
+                                    <input type="text" id="ville" class="form-control_profile form-control" placeholder="Ville">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <form>
+
+                                    <div class="prompt">Sexe:</div>
+
+                                    <label class="radio-wrapper">
+                                        <span class="radio-bg"></span>
+                                        <input type="radio" name="basic" value="option_1" />
+                                        <span class="dot"></span>
+                                        <span class="radio-label">Femme</span>
+                                    </label>
+
+                                    <label class="radio-wrapper active">
+                                        <span class="radio-bg"></span>
+                                        <input type="radio" name="basic" value="option_1" />
+                                        <span class="dot"></span>
+                                        <span class="radio-label">Homme</span>
+                                    </label>
+
+                                </form>
+
+                            </div>
+
                             <div class="form-group">
-                                <input type="submit" value="Send Message" class="btn btn-primary">
+                                <input type="submit" value="sauvegarder" class="btn btn-primary">
+                                <input type="submit" value="modifier" class="btn btn-primary">
                             </div>
 
                         </form>
@@ -178,7 +222,7 @@
                     <p>Nos Réseaux Sociaux:</p>
                     <li><a href="#"><img src="images/Facebook.svg"></a></li>
                     <li><a href="#"><img src="images/Instagram.svg"></a></li>
-                    <li><a href="#"><img src="images/Pinterest.svg"></i></a></li>
+                    <li><a href="#"><img src="images/Pinterest.png"></i></a></li>
                     <li><a href="#"><img src="images/Twitter.svg"></i></a></li>
                     </ul>
                     </p>

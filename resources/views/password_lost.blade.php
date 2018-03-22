@@ -8,7 +8,7 @@
     <meta name="description" content="OKAISA - Just For You" />
 
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 
     <!-- Animate.css -->
@@ -143,25 +143,25 @@
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label class="sr-only" for="email">Email</label>
-                                    <input type="text" id="email" class="form-control" placeholder="Adresse">
+                                    <input type="text" id="email" class="form-control" placeholder="Adresse email*">
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label class="sr-only" for="subject">Subject</label>
-                                    <input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
+                                    <input type="text" id="subject" class="form-control" placeholder="Object (facultatif)">
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label class="sr-only" for="message">Message</label>
-                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Write us something"></textarea>
+                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Votre message"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Send Message" class="btn btn-primary">
+                                <input type="submit" value="Valider" class="btn btn-primary">
                             </div>
 
                         </form>
@@ -184,7 +184,7 @@
                     <p>Nos Réseaux Sociaux:</p>
                     <li><a href="#"><img src="images/Facebook.svg"></a></li>
                     <li><a href="#"><img src="images/Instagram.svg"></a></li>
-                    <li><a href="#"><img src="images/Pinterest.svg"></i></a></li>
+                    <li><a href="#"><img src="images/Pinterest.png"></i></a></li>
                     <li><a href="#"><img src="images/Twitter.svg"></i></a></li>
                     </ul>
                     </p>
