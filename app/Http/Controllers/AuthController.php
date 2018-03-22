@@ -20,10 +20,10 @@ class AuthController extends Controller
     /**
      * index login
      */
-    public function index()
+    /*public function index()
     {
         return view('login');
-    }
+    }*/
 
     /**
      * login
@@ -35,25 +35,22 @@ class AuthController extends Controller
         $password = $request->get('password');
 
         if(!isset($email) || !isset($password)) {
-            echo "Vos identifiants sont incorrects.";
-            return;
+            return redirect()->back()->with("message", "Vos identifiants sont incorrect.");
         }
 
         $userExist = User::select('id_user', 'password')->where('email', $email)->first();
         if ($userExist == null)
         {
-            echo "Vos identifiants sont incorrects.";
-            return;
+            return redirect()->back()->with("message", "Vos identifiants sont incorrect.");
         }
         if (!Hash::check($password, $userExist->password))
         {
-            echo "Vos identifiants sont incorrects.";
-            return;
+            return redirect()->back()->with("message", "Vos identifiants sont incorrect.");
         }
 
         // On créé la session
         session()->put('user', $email);
-        echo "OK";
+        return redirect(route('profile'));
     }
 
     /**
@@ -67,5 +64,13 @@ class AuthController extends Controller
         } else {
             echo "Vous êtes déjà déconnecté.";
         }
+    }
+
+    /**
+     * logout
+     */
+    public function passwordLost(Request $request)
+    {
+        return view('password_lost');
     }
 }
