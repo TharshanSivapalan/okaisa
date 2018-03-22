@@ -13,6 +13,10 @@ class ChatbotController extends Controller
      */
     public function index()
     {
+        // On vérifie si l'utilisateur est authentifié
+        if(!Helpers::isAuth()) {
+            return redirect('/');
+        }
         return view('chatbot');
     }
 
