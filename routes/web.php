@@ -40,3 +40,5 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
  * Chatbot
  */
 Route::get('/chatbot', 'ChatbotController@index')->name('chatbot');
+//Ajax pour le chatbot
+Route::get('/ajaxChat', 'ChatbotController@ajax');

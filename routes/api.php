@@ -17,4 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/chatbot', 'ApiController@index');
+//Fulfillment
+Route::post('/fulfillment', 'ApiController@index');
