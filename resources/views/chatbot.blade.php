@@ -139,74 +139,32 @@
                             <img src="images/icon_femme.png" width="45%">
                         </div>
                         <div class="col-md-4">
-                            <iframe
-                                    width="360"
-                                    height="640"
-                                    src="https://console.dialogflow.com/api-client/demo/embedded/1264e3c4-589e-4734-991b-eaaa20000153">
-                            </iframe>
-                        </div>
-                        <div class="chatbot">
-                            <div id="chatbot-box" class="text">
-                                Blabla
+                            <div class="avenue-messenger">
+                                <div class="menu">
+                                    <div class="items"><span>
+                     <a href="#" title="Minimize">&mdash;</a><br>
+                                                            <!--
+                                                                 <a href="">enter email</a><br>
+                                                                 <a href="">email transcript</a><br>-->
+                     <a href="#" title="End Chat">&#10005;</a>
+
+                     </span></div>
+                                </div>
+                                <div class="chat">
+                                    <div class="chat-title">
+                                    </div>
+                                    <div class="messages">
+                                        <div class="messages-content"></div>
+                                    </div>
+                                    <div class="message-box">
+                                        <input id="chatbot-input" type="text" class="message-input" >
+                                        <!-- <button type="submit" class="message-submit">Send</button> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <input id="chatbot-input">
+                        </div>
                     </div>
-                    <script>
-                        //console.log($('#chatbot-input').text());
-                        $('#chatbot-input').bind("enterKey",function(e){
-                            var newInput = $('#chatbot-input').val();
-                            newInput = encodeURIComponent(newInput);
-                            $('#chatbot-input').val('');
-                            $('#chatbot-box').append(newInput);
-                            ajaxLoad(newInput);
-
-                        });
-                        $('#chatbot-input').keyup(function(e){
-                            if(e.keyCode == 13)
-                            {
-                                $(this).trigger("enterKey");
-                            }
-                        });
-
-                        // On récupère en Ajax le contenu
-                        function ajaxLoad(q){
-                            $.ajaxSetup({
-                                xhrFields: {
-                                    withCredentials: true
-                                }
-                            });
-                            $.ajax({
-                                url : '/ajaxChat?q='+q,
-                                type : 'GET',
-                                dataType : 'html',
-                                xhrFields: {
-                                    withCredentials: true
-                                },
-                                crossDomain: true,
-
-                                success: function(response, statut){
-                                    // On le met dans album
-                                    console.log("Success");
-                                    console.log("response", response);
-                                    console.log("statut", statut);
-                                },
-
-                                error: function(resultat, statut, erreur){
-                                    // TODO: Gestion de l'erreur
-                                    var strError = "<div class='error'>Une erreur est survenue pendant le chargement. Veuillez recharger la page.</div>"
-                                    $('#chatbot-input').append(strError);
-                                    console.log("Erreur Ajax.");
-                                    console.log(resultat + " " + statut + " " + erreur);
-                                },
-
-                                complete: function(data) {
-                                    $('#loading-image').hide();
-                                }
-                            })
-                        }
-                    </script>
-
 
                     </div>
                 </div>
@@ -252,6 +210,9 @@
         <script src="js/magnific-popup-options.js"></script>
         <!-- Main -->
         <script src="js/main.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>
+
+        <script  src="js/chat.js"></script>
 
         <script>
             var click = false;
