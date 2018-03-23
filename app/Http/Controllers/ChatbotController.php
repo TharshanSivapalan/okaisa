@@ -6,6 +6,7 @@ use App\Helpers\Helpers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Classes\Api\WeatherOnlineClass;
 
 class ChatbotController extends Controller
 {
@@ -30,7 +31,14 @@ class ChatbotController extends Controller
         $aUser['country'] = $userExist->country;
         $aUser['city'] = $userExist->city;
 
-        return view('chatbot', ['user' => $aUser]);
+        // On génère et envoie la date du jour
+        date_default_timezone_set('Europe/Paris');
+        setlocale(LC_TIME, 'fr_FR.utf8','fra');// OK
+        $dateNowFr = ucwords(strftime("%A %d %B %Y"));
+
+        $wo = new WeatherOnlineClass();
+        $actualCond = $wo->getActualCondFr($userExist->country);
+        return view('chatbot', ['user' => $aUser, 'dateNowFr'=>$dateNowFr, 'actualCond' => $actualCond]);
     }
 
     public function ajax(Request $request)

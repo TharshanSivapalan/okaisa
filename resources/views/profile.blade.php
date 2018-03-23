@@ -90,9 +90,10 @@
                             <div id="dropDown" class="row">
                                 <div class="col-lg-12">
                                     <ul class="list list-unstyled text-center">
-                                        <li><a class="sous-menu" href="profile">A propos</a></li>
+                                        <li><a class="sous-menu" href="profile">Profil</a></li>
                                         <li><a class="sous-menu" href="assistant">Mon assitant</a></li>
                                         <li><a class="sous-menu" href="#">Contact</a></li>
+                                        <li><a class="sous-menu" href="logout">Déconnexion</a></li>
                                     </ul>
                                 </div>
                             </div>

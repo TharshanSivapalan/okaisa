@@ -65,10 +65,6 @@ class ApiController extends Controller
                 break;
             }
         }
-        /*if(!isset($gender)) {
-            return response("{\"error\":\"Aucune action détecté.\"}", 400)
-                ->header('Content-Type', 'application/json');
-        }*/
 
         if(isset($aUser['gender'])) {
             $gender = $aUser['gender'];
@@ -104,10 +100,6 @@ class ApiController extends Controller
                 $gender = $context['parameters']['genre'];
             }
         }
-        /*if(!isset($gender)) {
-            return response("{\"error\":\"Aucune action détecté.\"}", 400)
-                ->header('Content-Type', 'application/json');
-        }*/
 
         if(isset($aUser['gender'])) {
             $gender = $aUser['gender'];
@@ -143,10 +135,6 @@ class ApiController extends Controller
                 $gender = $context['parameters']['genre'];
             }
         }
-        /*if(!isset($gender)) {
-            return response("{\"error\":\"Aucune action détecté.\"}", 400)
-                ->header('Content-Type', 'application/json');
-        }*/
 
         if(isset($aUser['gender'])) {
             $gender = $aUser['gender'];
@@ -182,10 +170,6 @@ class ApiController extends Controller
                 $gender = $context['parameters']['genre'];
             }
         }
-        /*if(!isset($gender)) {
-            return response("{\"error\":\"Aucune action détecté.\"}", 400)
-                ->header('Content-Type', 'application/json');
-        }*/
 
         if(isset($aUser['gender'])) {
             $gender = $aUser['gender'];
@@ -268,7 +252,7 @@ class ApiController extends Controller
                     if($snow) {
                         $response = "De la neige est prévu dans la ville de ".$city.".";
                     } else if ($rain) {
-                        $response = "De la pluie est prévu c Je vous recommande de prendre un parapluie.";
+                        $response = "De la pluie est prévu dans la ville de ".$city.". Je vous recommande de prendre un parapluie.";
                     } else {
                         $response = "Il n'y a pas d'intemperies de prévu dans la ville de ".$city.".";
                     }

@@ -18,6 +18,7 @@ class ProfileController extends Controller
             return redirect('/');
         }
 
+        // On récupère les données pour les afficher
         $email = session()->get('user.email');
         $userExist = User::select()->where('email', $email)->first();
         $aUser = [];
@@ -28,7 +29,6 @@ class ProfileController extends Controller
         $aUser['phone'] = $userExist->phone;
         $aUser['country'] = $userExist->country;
         $aUser['city'] = $userExist->city;
-        //$aUser['email'] = $userExist->email;
 
         return view('profile', ['user' => $aUser]);
     }
@@ -49,6 +49,7 @@ class ProfileController extends Controller
             return "0";
         }
 
+        // La validatation des données a été faite par UserUpdateRequest
         $userExist->last_name = $request->last_name;
         $userExist->first_name = $request->first_name;
         $userExist->gender = $request->gender;

@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //Fulfillment
-Route::post('/fulfillment', 'ApiController@index');
+Route::post('/fulfillment', 'ApiDialogFlow/ApiController@index');

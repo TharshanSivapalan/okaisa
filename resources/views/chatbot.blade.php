@@ -106,9 +106,10 @@
                                 <div id="dropDown" class="row">
                                     <div class="col-lg-12">
                                         <ul class="list list-unstyled text-center">
-                                            <li><a class="sous-menu" href="profile">A propos</a></li>
+                                            <li><a class="sous-menu" href="profile">Profil</a></li>
                                             <li><a class="sous-menu" href="assistant">Mon assitant</a></li>
                                             <li><a class="sous-menu" href="#">Contact</a></li>
+                                            <li><a class="sous-menu" href="logout">Déconnexion</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -120,8 +121,13 @@
                 </div>
                 <div class=" test_logo_profile test_logo bann_ass test_bann_ass row text-center">
                     <h1>Bonjour {{ucfirst($user['first_name'])}}</h1><br>
-                    <p class="text_bann">Nous sommes le Vendredi 23 Mars 2018</p>
-                    <p class="text_bann">Il est {{date('H:i',time() + 3600)}}, il pleut. <object id="svg1" data="/images/weather/cloudy.svg" type="image/svg+xml"></object></p>
+                    <p class="text_bann">Nous sommes le {{$dateNowFr}}.</p>
+                    <p class="text_bann">
+                        Il est {{date('H:i',time())}}.
+                        @Isset($actualCond)
+                            Condition météo actuel : {{$actualCond['frCondition']}} <img src="{{$actualCond['pngUrl']}}">
+                        @EndIsset
+                    </p>
                 </div>
             </header>
 
