@@ -50,7 +50,7 @@ class User extends Eloquent
         'country',
         'city',
         'phone',
-        'need',
+        'gender',
 		'active',
         'first_connection',
 		'remember_token'

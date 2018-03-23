@@ -25,20 +25,25 @@ class RegisterController extends Controller
         // UserAddRequest a fait les validations
         // On créé l'utilisateur
         $user = new User();
-        $user->last_name = $request->last_name;
-        $user->first_name = $request->first_name;
-        $user->country = $request->country;
-        $user->city = $request->city;
-        $user->phone = $request->phone;
-        $user->need = $request->need;
+        $user->last_name = "";
+        $user->first_name = "";
+        $user->country = "";
+        $user->city = "";
+        $user->phone = "";
+        $user->gender = "";
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->active = 1;
         $user->first_connection = 1;
         $user->save();
 
+        session()->put('user.email', $request->email);
+        session()->put('user.first_name', "");
+        session()->put('user.lastname_name', "");
+        session()->put('user.gender', "");
+
         // On redirige vers la page de 1er connexion
-        return redirect(route('welcome'));
+        return redirect(route('profile'));
 
     }
 

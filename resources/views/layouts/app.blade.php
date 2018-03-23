@@ -127,23 +127,23 @@
                                             </div>
 
                                             <div class="tab-content-inner " data-content="signup">
-                                                <form action="#">
+                                                {!! Form::open(['url' => 'register', 'method' => 'post']) !!}
                                                     <div class="row form-group">
                                                         <div class="col-md-12">
-                                                            <label for="username">Username or Email</label>
-                                                            <input type="text" class="form-control" id="username">
+                                                            <label for="email">Email</label>
+                                                            <input type="email" name="email" class="form-control" id="email">
                                                         </div>
                                                     </div>
                                                     <div class="row form-group">
                                                         <div class="col-md-12">
                                                             <label for="password">Password</label>
-                                                            <input type="password" class="form-control" id="password">
+                                                            <input type="password" name="password" class="form-control" id="password">
                                                         </div>
                                                     </div>
                                                     <div class="row form-group">
                                                         <div class="col-md-12">
-                                                            <label for="password2">Repeat Password</label>
-                                                            <input type="password" class="form-control" id="password2">
+                                                            <label for="password2">Confirmation du mot de passe</label>
+                                                            <input type="password" name="password_confirmation" class="form-control" id="password2">
                                                         </div>
                                                     </div>
 
@@ -158,8 +158,16 @@
                                                             <input type="submit" class="btn btn-primary" value="Sign up">
                                                         </div>
                                                     </div>
-                                                    {{ csrf_field() }}
-                                                </form>
+                                                    @if ($errors->any())
+                                                        <div class="alert alert-danger">
+                                                            <ul>
+                                                                @foreach ($errors->all() as $error)
+                                                                    <li>{{ $error }}</li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    @endif
+                                                {!! Form::close() !!}
                                             </div>
                                         </div>
                                     </div>

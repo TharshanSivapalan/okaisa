@@ -49,7 +49,10 @@ class AuthController extends Controller
         }
 
         // On créé la session
-        session()->put('user', $email);
+        session()->put('user.email', $email);
+        session()->put('user.first_name', $userExist->first_name);
+        session()->put('user.lastname_name', $userExist->last_name);
+        session()->put('user.gender', $userExist->gender);
         return redirect(route('profile'));
     }
 

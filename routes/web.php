@@ -32,9 +32,10 @@ Route::get('/register', 'RegisterController@index')->name('register');
 Route::post('/register', 'RegisterController@createAccount');
 
 /**
- *
+ * Profile
  */
 Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/profile/update', 'ProfileController@update');
 
 /**
  * Chatbot

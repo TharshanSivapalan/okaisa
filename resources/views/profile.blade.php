@@ -125,18 +125,20 @@
                 <div class="col-md-6 col-md-offset-3 profil_form">
                     <div class="col-md-12 form_profile animate-box ">
                         <h3 class="style_text">Informations personelles</h3>
-                        <form action="#">
+                        {!! Form::open(['url' => 'profile/update', 'method' => 'post']) !!}
                             <div class="row form-group">
                                 <div class="col-md-8">
 
-                                    <input type="text" id="nom" class="form-control_profile form-control" placeholder="Nom">
+                                    <input type="text" id="nom" name="last_name" class="form-control_profile form-control" placeholder="Nom"
+                                           value="{{$user['last_name']}}">
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-8">
 
-                                    <input type="text" id="prénom" class="form-control_profile form-control" placeholder="Prénom">
+                                    <input type="text" id="prénom" name="first_name" class="form-control_profile form-control" placeholder="Prénom"
+                                           value="{{$user['first_name']}}">
                                 </div>
 
                             </div>
@@ -144,65 +146,81 @@
                             <div class="row form-group">
                                 <div class="col-md-8">
 
-                                    <input type="text" id="email" class="form-control_profile form-control" placeholder="Adresse email*">
+                                    <input type="text" id="email" name="email" class="form-control_profile form-control" placeholder="Adresse email*"
+                                    value="{{$user['email']}}" disabled>
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-8">
 
-                                    <input type="password" id="password" class="form-control_profile form-control" placeholder="Mot de passe">
+                                    <input type="password" id="password" name="password" class="form-control_profile form-control" placeholder="Mot de passe">
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-8">
 
-                                    <input type="text" class="form-control_profile form-control" placeholder="Numéro de téléphone">
+                                    <input type="text" class="form-control_profile form-control" name="phone" placeholder="Numéro de téléphone"
+                                           value="{{$user['phone']}}">
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-8">
-                                    <input type="text" id="pays" class="form-control_profile form-control" placeholder="Pays">
+                                    <input type="text" id="pays" class="form-control_profile form-control" name="country" placeholder="Pays"
+                                           value="{{$user['country']}}">
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-8">
-                                    <input type="text" id="ville" class="form-control_profile form-control" placeholder="Ville">
+                                    <input type="text" id="ville" class="form-control_profile form-control" name="city" placeholder="Ville"
+                                           value="{{$user['city']}}">
                                 </div>
                             </div>
 
-                            <div class="row form-group">
-                                <form>
 
-                                    <div class="prompt">Sexe:</div>
+                            <div class="prompt">
+                                Sexe:
+                                <label class="radio-wrapper">
+                                    <span class="radio-bg"></span>
+                                    @If($user['gender']=='f')
+                                        <input type="radio" name="gender" value="f" checked="checked"/>
+                                    @Else
+                                        <input type="radio" name="gender" value="f" />
+                                    @EndIf
+                                    <span class="dot"></span>
+                                    <span class="radio-label">Femme</span>
+                                </label>
 
-                                    <label class="radio-wrapper">
-                                        <span class="radio-bg"></span>
-                                        <input type="radio" name="basic" value="option_1" />
-                                        <span class="dot"></span>
-                                        <span class="radio-label">Femme</span>
-                                    </label>
-
-                                    <label class="radio-wrapper active">
-                                        <span class="radio-bg"></span>
-                                        <input type="radio" name="basic" value="option_1" />
-                                        <span class="dot"></span>
-                                        <span class="radio-label">Homme</span>
-                                    </label>
-
-                                </form>
-
+                                <label class="radio-wrapper">
+                                    <span class="radio-bg"></span>
+                                    @If($user['gender']=='h')
+                                        <input type="radio" name="gender" value="h" checked="checked"/>
+                                    @Else
+                                        <input type="radio" name="gender" value="h" />
+                                    @EndIf
+                                    <span class="dot"></span>
+                                    <span class="radio-label">Homme</span>
+                                </label>
                             </div>
 
                             <div class="form-group">
                                 <input type="submit" value="sauvegarder" class="btn btn-primary">
                                 <input type="submit" value="modifier" class="btn btn-primary">
                             </div>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
-                        </form>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
