@@ -79,7 +79,11 @@
 
                                             <div class="col-md-2 col-md-offset-9">
                                                 <div class="profile_pict_ass">
-                                                    <img src="images/portrait-ellipse1.png">
+                                                    @If($user['gender']=='f')
+                                                        <img src="images/portrait-ellipse1.png">
+                                                    @Else
+                                                        <img src="images/portrait-ellipse2.png">
+                                                    @EndIf
                                                 </div>
                                             </div>
                                             <div class="col-md-1">
@@ -115,10 +119,9 @@
 
                 </div>
                 <div class=" test_logo_profile test_logo bann_ass test_bann_ass row text-center">
-                    <h1>Bonjour Céline</h1><br>
+                    <h1>Bonjour {{ucfirst($user['first_name'])}}</h1><br>
                     <p class="text_bann">Nous sommes le dimanche 23 Mars 2018</p>
-                    <p class="text_bann">Il est {{date('H:i',time() + 3600)}}, il pleut.</p>
-
+                    <p class="text_bann">Il est {{date('H:i',time() + 3600)}}, il pleut. <object id="svg1" data="/images/weather/rainy-4.svg" type="image/svg+xml"></object></p>
                 </div>
             </header>
 

@@ -100,10 +100,13 @@
 
                         <div class=" test_logo_profile test_logo row">
                             <div class="profile_pict text-center">
-                                <img src="images/portrait-ellipse1.png">
-
-                                <h2 class="center-text">Ariel Laroche</h2>
-                                <h4 class="center-text white_text">Paris, France</h4>
+                                @If($user['gender']=='f')
+                                    <img src="images/portrait-ellipse1.png">
+                                @Else
+                                    <img src="images/portrait-ellipse2.png">
+                                @EndIf
+                                <h2 class="center-text">{{ucfirst($user['first_name'])}} {{ucfirst($user['last_name'])}}</h2>
+                                <h4 class="center-text white_text">{{ucfirst($user['city'])}}, {{strtoupper($user['country'])}}</h4>
                             </div>
 
                         </div>

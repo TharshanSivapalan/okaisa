@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helpers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ChatbotController extends Controller
 {
@@ -17,7 +18,19 @@ class ChatbotController extends Controller
         if(!Helpers::isAuth()) {
             return redirect('/');
         }
-        return view('chatbot');
+
+        $email = session()->get('user.email');
+        $userExist = User::select()->where('email', $email)->first();
+        $aUser = [];
+        $aUser['email'] = $userExist->email;
+        $aUser['last_name'] = $userExist->last_name;
+        $aUser['first_name'] = $userExist->first_name;
+        $aUser['gender'] = $userExist->gender;
+        $aUser['phone'] = $userExist->phone;
+        $aUser['country'] = $userExist->country;
+        $aUser['city'] = $userExist->city;
+
+        return view('chatbot', ['user' => $aUser]);
     }
 
     public function ajax(Request $request)

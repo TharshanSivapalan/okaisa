@@ -71,7 +71,7 @@
                                 <!-- logo -->
 
 
-                                <div id="gtco-logo"><a href="index.html"><img src="images/logo.svg"> </a></div>
+                                <div id="gtco-logo"><a href="/"><img src="images/logo.svg"> </a></div>
                             </div>
                         </div>
 
