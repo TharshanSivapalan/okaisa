@@ -10,7 +10,6 @@ class ApiController extends Controller
 {
     public function index(Request $request)
     {
-        file_put_contents ( "C:\\file.txt", "toto");
         // On récupère le body du Request reçu
         $jsonRequest = json_decode($request->getContent(), true);
         if(isset($jsonRequest['result']['action'])) {

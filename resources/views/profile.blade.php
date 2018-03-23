@@ -67,7 +67,7 @@
                                 <div class="row">
                                     <!-- logo -->
                                     <div class="col-md-3">
-                                        <div id="gtco-logo2"><a href="index.html"><img src="images/logo.svg"></a></div>
+                                        <div id="gtco-logo2"><a href="/"><img src="images/logo.svg"></a></div>
                                     </div>
 
                                     <div class="col-md-9 text-right menu-bas">

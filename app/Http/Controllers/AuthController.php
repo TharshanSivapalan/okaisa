@@ -63,10 +63,8 @@ class AuthController extends Controller
     {
         if(Helpers::isAuth()) {
             session()->flush();
-            echo "Vous avez été déconnecté.";
-        } else {
-            echo "Vous êtes déjà déconnecté.";
         }
+        return redirect('/');
     }
 
     /**
