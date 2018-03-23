@@ -120,8 +120,8 @@
                 </div>
                 <div class=" test_logo_profile test_logo bann_ass test_bann_ass row text-center">
                     <h1>Bonjour {{ucfirst($user['first_name'])}}</h1><br>
-                    <p class="text_bann">Nous sommes le dimanche 23 Mars 2018</p>
-                    <p class="text_bann">Il est {{date('H:i',time() + 3600)}}, il pleut. <object id="svg1" data="/images/weather/rainy-4.svg" type="image/svg+xml"></object></p>
+                    <p class="text_bann">Nous sommes le Vendredi 23 Mars 2018</p>
+                    <p class="text_bann">Il est {{date('H:i',time() + 3600)}}, il pleut. <object id="svg1" data="/images/weather/cloudy.svg" type="image/svg+xml"></object></p>
                 </div>
             </header>
 

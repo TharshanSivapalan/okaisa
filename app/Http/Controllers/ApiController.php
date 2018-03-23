@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ApiController extends Controller
 {
@@ -19,31 +20,38 @@ class ApiController extends Controller
                 ->header('Content-Type', 'application/json');
         }
 
+        $email = $jsonRequest['sessionId'];
+        $userExist = User::select()->where('email', $email)->first();
+        $aUser = [];
+        $aUser['email'] = $userExist->email;
+        $aUser['gender'] = $userExist->gender;
+        $aUser['city'] = $userExist->city;
+
         // Intent météo
         if($action == 'action.meteo') {
-            return $this->weather($jsonRequest);
+            return $this->weather($jsonRequest, $aUser);
         }
 
         // Intent Habille
         if($action == 'Habiller.Habiller-no') {
-            return $this->dressNo($jsonRequest);
+            return $this->dressNo($jsonRequest, $aUser);
         }
         if($action == 'Habiller.Habiller-yes.professionnel') {
-            return $this->dressYesPro($jsonRequest);
+            return $this->dressYesPro($jsonRequest, $aUser);
         }
         if($action == 'Habiller.Habiller-yes.night') {
-            return $this->dressYesNight($jsonRequest);
+            return $this->dressYesNight($jsonRequest, $aUser);
         }
         if($action == 'Habiller.Habiller-yes.mariage') {
-            return $this->dressYesWed($jsonRequest);
+            return $this->dressYesWed($jsonRequest, $aUser);
         }
         if($action == 'Habiller.Habiller-yes.personnel') {
-            return $this->dressYesPerso($jsonRequest);
+            return $this->dressYesPerso($jsonRequest, $aUser);
         }
 
     }
 
-    private function dressNo($jsonRequest)
+    private function dressNo($jsonRequest, $aUser)
     {
         //On valide les paramètres reçu
         if( !isset($jsonRequest['result']['contexts']) ) {
@@ -57,14 +65,18 @@ class ApiController extends Controller
                 break;
             }
         }
-        if(!isset($gender)) {
+        /*if(!isset($gender)) {
             return response("{\"error\":\"Aucune action détecté.\"}", 400)
                 ->header('Content-Type', 'application/json');
+        }*/
+
+        if(isset($aUser['gender'])) {
+            $gender = $aUser['gender'];
         }
 
-        if(stripos($gender, 'Homme') !== false) {
+        if(stripos($gender, 'H') !== false) {
             $response = "Je peux vous conseiller un pantalon.";
-        } else if(stripos($gender, 'Femme') !== false) {
+        } else if(stripos($gender, 'F') !== false) {
             $response = "Je peux vous conseiller une robe.";
         } else {
             $response = "Je peux vous conseiller un autre chose.";
@@ -79,7 +91,7 @@ class ApiController extends Controller
             ->header('Content-Type', 'application/json');
     }
 
-    private function dressYesPro($jsonRequest)
+    private function dressYesPro($jsonRequest, $aUser)
     {
         //On valide les paramètres reçu
         if( !isset($jsonRequest['result']['contexts']) ) {
@@ -92,14 +104,18 @@ class ApiController extends Controller
                 $gender = $context['parameters']['genre'];
             }
         }
-        if(!isset($gender)) {
+        /*if(!isset($gender)) {
             return response("{\"error\":\"Aucune action détecté.\"}", 400)
                 ->header('Content-Type', 'application/json');
+        }*/
+
+        if(isset($aUser['gender'])) {
+            $gender = $aUser['gender'];
         }
 
-        if(stripos($gender, 'Homme') !== false) {
+        if(stripos($gender, 'H') !== false) {
             $response = "Je peux vous conseiller un costume.";
-        } else if(stripos($gender, 'Femme') !== false) {
+        } else if(stripos($gender, 'F') !== false) {
             $response = "Pour votre rendez-vous je peux vous conseiller une tenue simple, avec un chemisier, une veste et un pantalon cigarette.";
         } else {
             $response = "Je peux vous conseiller un autre chose.";
@@ -114,7 +130,7 @@ class ApiController extends Controller
             ->header('Content-Type', 'application/json');
     }
 
-    private function dressYesNight($jsonRequest)
+    private function dressYesNight($jsonRequest, $aUser)
     {
         //On valide les paramètres reçu
         if( !isset($jsonRequest['result']['contexts']) ) {
@@ -127,14 +143,18 @@ class ApiController extends Controller
                 $gender = $context['parameters']['genre'];
             }
         }
-        if(!isset($gender)) {
+        /*if(!isset($gender)) {
             return response("{\"error\":\"Aucune action détecté.\"}", 400)
                 ->header('Content-Type', 'application/json');
+        }*/
+
+        if(isset($aUser['gender'])) {
+            $gender = $aUser['gender'];
         }
 
-        if(stripos($gender, 'Homme') !== false) {
+        if(stripos($gender, 'H') !== false) {
             $response = "Je vous conseille de porter un smoking.";
-        } else if(stripos($gender, 'Femme') !== false) {
+        } else if(stripos($gender, 'F') !== false) {
             $response = "Je vous conseille une robe rouge.";
         } else {
             $response = "Je peux vous conseiller un autre chose.";
@@ -149,7 +169,7 @@ class ApiController extends Controller
             ->header('Content-Type', 'application/json');
     }
 
-    private function dressYesWed($jsonRequest)
+    private function dressYesWed($jsonRequest, $aUser)
     {
         //On valide les paramètres reçu
         if( !isset($jsonRequest['result']['contexts']) ) {
@@ -162,14 +182,18 @@ class ApiController extends Controller
                 $gender = $context['parameters']['genre'];
             }
         }
-        if(!isset($gender)) {
+        /*if(!isset($gender)) {
             return response("{\"error\":\"Aucune action détecté.\"}", 400)
                 ->header('Content-Type', 'application/json');
+        }*/
+
+        if(isset($aUser['gender'])) {
+            $gender = $aUser['gender'];
         }
 
-        if(stripos($gender, 'Homme') !== false) {
+        if(stripos($gender, 'H') !== false) {
             $response = "Je vous conseille de porter un costume.";
-        } else if(stripos($gender, 'Femme') !== false) {
+        } else if(stripos($gender, 'F') !== false) {
             $response = "Je vous conseille une robe rose.";
         } else {
             $response = "Je peux vous conseiller un autre chose.";
@@ -184,7 +208,7 @@ class ApiController extends Controller
             ->header('Content-Type', 'application/json');
     }
 
-    private function weather($jsonRequest)
+    private function weather($jsonRequest, $aUser)
     {
         //On valide les paramètres reçu
         if( !isset($jsonRequest['result']['parameters'])
@@ -199,7 +223,7 @@ class ApiController extends Controller
         $baseUrl = "http://api.worldweatheronline.com";
         $serviceUrl = "/premium/v1/weather.ashx";
         $apiKey = "e3eb853cd11e4e2b90b113357182103";
-        $city = "Paris";
+        $city = $aUser['city'];
         $url = $baseUrl.$serviceUrl."?key=".$apiKey."&q=".$city."&format=json&num_of_days=3";
 
         // On récupère les informations météo
@@ -242,11 +266,11 @@ class ApiController extends Controller
                         }
                     }
                     if($snow) {
-                        $response = "De la neige est prévu.";
+                        $response = "De la neige est prévu dans la ville de ".$city.".";
                     } else if ($rain) {
-                        $response = "De la pluie est prévu. Je vous recommande de prendre un parapluie.";
+                        $response = "De la pluie est prévu c Je vous recommande de prendre un parapluie.";
                     } else {
-                        $response = "Il n'y a pas d'intemperies de prévu.";
+                        $response = "Il n'y a pas d'intemperies de prévu dans la ville de ".$city.".";
                     }
                     break;
                 }

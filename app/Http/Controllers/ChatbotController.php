@@ -50,7 +50,7 @@ class ChatbotController extends Controller
         $baseUrl = "http://console.dialogflow.com";
         $serviceUrl = "/api-client/demo/embedded/1264e3c4-589e-4734-991b-eaaa20000153/demoQuery";
         $pText = "q=".$text;
-        $pSession = "sessionId=8d5f0004-c5b0-3ec0-67a1-593cc7e19231";
+        $pSession = "sessionId=".$email;
         $url = $baseUrl.$serviceUrl."?".$pText."&".$pSession;
 
         // On récupère les informations
