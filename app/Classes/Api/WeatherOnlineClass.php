@@ -32,7 +32,6 @@ class WeatherOnlineClass
 
         // On cherche la traduction française
         $enCondition = $jsonWeather['data']['current_condition'][0]['weatherDesc'][0]['value'];
-        echo $enCondition;
         $info['frCondition'] = "Inconnu";
         for($i=0; $i<count($this->enConditions); $i++) {
             if(strcasecmp($this->enConditions[$i],$enCondition)==0) {
