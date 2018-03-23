@@ -25,7 +25,11 @@ class UserAddRequest extends FormRequest
     {
         return [
             'email'                 => 'required|email|max:320|unique:users,email',
-            'password'              => 'required|confirmed|max:255',
+            'password'              => 'required|
+                                           min:6|
+                                           max:32|
+                                           regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|
+                                           confirmed',
             'password_confirmation' => 'required'
         ];
     }
@@ -35,6 +39,7 @@ class UserAddRequest extends FormRequest
         return [
             'email.required'                => "L'e-mail est requis.",
             'password.required'             => "Le mot de passe est requis.",
+            'password.regex'                => "Le mot de passe ne respecte pas les critères de sécurités.",
             'password.confirmed'            => "Les mots de passes ne sont pas identiques.."
         ];
     }
