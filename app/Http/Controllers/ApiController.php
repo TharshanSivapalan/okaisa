@@ -100,7 +100,77 @@ class ApiController extends Controller
         if(stripos($gender, 'Homme') !== false) {
             $response = "Je peux vous conseiller un costume.";
         } else if(stripos($gender, 'Femme') !== false) {
-            $response = "Pour votre rendez-vous je vous conseille une tenue simple, avec un chemisier, une veste blaser et un pantalon cigarette.";
+            $response = "Pour votre rendez-vous je peux vous conseiller une tenue simple, avec un chemisier, une veste et un pantalon cigarette.";
+        } else {
+            $response = "Je peux vous conseiller un autre chose.";
+        }
+
+        $resChat = "{
+              \"speech\": \"".$response."\",
+              \"displayText\": \"".$response."\"
+            }";
+        // On retourne la réponse à DialogFlow
+        return response($resChat, 200)
+            ->header('Content-Type', 'application/json');
+    }
+
+    private function dressYesNight($jsonRequest)
+    {
+        //On valide les paramètres reçu
+        if( !isset($jsonRequest['result']['contexts']) ) {
+            return response("{\"error\":\"Paramètres manquant.\"}", 400)
+                ->header('Content-Type', 'application/json');
+        }
+
+        foreach($jsonRequest['result']['contexts'] as $context) {
+            if(stripos($context['name'], 'habiller-followup') !== false) {
+                $gender = $context['parameters']['genre'];
+            }
+        }
+        if(!isset($gender)) {
+            return response("{\"error\":\"Aucune action détecté.\"}", 400)
+                ->header('Content-Type', 'application/json');
+        }
+
+        if(stripos($gender, 'Homme') !== false) {
+            $response = "Je vous conseille de porter un smoking.";
+        } else if(stripos($gender, 'Femme') !== false) {
+            $response = "Je vous conseille une robe rouge.";
+        } else {
+            $response = "Je peux vous conseiller un autre chose.";
+        }
+
+        $resChat = "{
+              \"speech\": \"".$response."\",
+              \"displayText\": \"".$response."\"
+            }";
+        // On retourne la réponse à DialogFlow
+        return response($resChat, 200)
+            ->header('Content-Type', 'application/json');
+    }
+
+    private function dressYesWed($jsonRequest)
+    {
+        //On valide les paramètres reçu
+        if( !isset($jsonRequest['result']['contexts']) ) {
+            return response("{\"error\":\"Paramètres manquant.\"}", 400)
+                ->header('Content-Type', 'application/json');
+        }
+
+        foreach($jsonRequest['result']['contexts'] as $context) {
+            if(stripos($context['name'], 'habiller-followup') !== false) {
+                $gender = $context['parameters']['genre'];
+            }
+        }
+        if(!isset($gender)) {
+            return response("{\"error\":\"Aucune action détecté.\"}", 400)
+                ->header('Content-Type', 'application/json');
+        }
+
+        if(stripos($gender, 'Homme') !== false) {
+            $response = "Je vous conseille de porter un costume.";
+        } else if(stripos($gender, 'Femme') !== false) {
+            $response = "Je vous conseille une robe rose.";
         } else {
             $response = "Je peux vous conseiller un autre chose.";
         }
@@ -123,6 +193,7 @@ class ApiController extends Controller
                 ->header('Content-Type', 'application/json');
         }
         $pDate = $jsonRequest['result']['parameters']['date'];
+
 
         // On compose l'URL pour appeler l'API météo
         $baseUrl = "http://api.worldweatheronline.com";
@@ -173,7 +244,7 @@ class ApiController extends Controller
                     if($snow) {
                         $response = "De la neige est prévu.";
                     } else if ($rain) {
-                        $response = "De la pluie est prévu.";
+                        $response = "De la pluie est prévu. Je vous recommande de prendre un parapluie.";
                     } else {
                         $response = "Il n'y a pas d'intemperies de prévu.";
                     }
