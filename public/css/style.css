@@ -60,7 +60,7 @@ test_logo_index {
   bottom: 0px;
   width: 100vw;
   padding-top: 100px;
-
+  z-index:1;
 }
 
 .text_bann{
