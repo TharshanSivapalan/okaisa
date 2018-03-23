@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>OKAISA - Just For You</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="OKAISA - Just For You" />
+    <meta name="description" content="OKAISA - Just For You"/>
 
 
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
@@ -40,7 +40,6 @@
 </head>
 
 
-
 <body>
 
 <div class="gtco-loader"></div>
@@ -52,8 +51,6 @@
 
 
         <!-- IMAGE DE FOND  -->
-
-
 
 
         <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url(images/fond.jpg)">
@@ -76,12 +73,13 @@
                         </div>
 
 
-
                         <div class="test_logo_index row row-mt-15em">
                             <div class="col-md-7 mt-text mdp2 animate-box" data-animate-effect="fadeInUp">
                                 <span class="intro-text-small">Welcome to Okaïsa</span>
-                                <h1 style="font-size: 25px">Okaïsa permet de vous accompagner dans votre choix vestimentaire à tout instant.
-                                    <br><br>Offrant à l’utilisateur une assistance personnalisée en fonction de son dressing, de ses goûts et
+                                <h1 style="font-size: 25px">Okaïsa permet de vous accompagner dans votre choix
+                                    vestimentaire à tout instant.
+                                    <br><br>Offrant à l’utilisateur une assistance personnalisée en fonction de son
+                                    dressing, de ses goûts et
                                     de son style de vie.
                                 </h1>
                             </div>
@@ -89,7 +87,8 @@
                                 <div class="form-wrap">
                                     <div class="tab">
                                         <ul class="tab-menu">
-                                            <li class="active col-lg-12 wdth100"><a href="#!">Réinitialiser mon mode de passe</a></li>
+                                            <li class="active col-lg-12 wdth100"><a href="#!">Réinitialiser mon mode de
+                                                    passe</a></li>
                                         </ul>
                                         <div class="tab-content">
 
@@ -99,14 +98,16 @@
                                                 <form action="#">
                                                     <div class="row form-group">
                                                         <div class="col-md-12">
-                                                            <input type="text" class="form-control" id="mail " placeholder="Email">
+                                                            <input type="text" class="form-control" id="mail "
+                                                                   placeholder="Email">
                                                         </div>
                                                     </div>
 
 
                                                     <div class="row form-group">
                                                         <div class="col-md-12 text-center">
-                                                            <input type="submit" class="btn btn-primary" value="Valider">
+                                                            <input type="submit" class="btn btn-primary"
+                                                                   value="Valider">
                                                         </div>
                                                     </div>
 
@@ -150,14 +151,16 @@
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label class="sr-only" for="subject">Subject</label>
-                                    <input type="text" id="subject" class="form-control" placeholder="Object (facultatif)">
+                                    <input type="text" id="subject" class="form-control"
+                                           placeholder="Object (facultatif)">
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label class="sr-only" for="message">Message</label>
-                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Votre message"></textarea>
+                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control"
+                                              placeholder="Votre message"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">

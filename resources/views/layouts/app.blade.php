@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>OKAISA - Just For You</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="OKAISA - Just For You" />
+    <meta name="description" content="OKAISA - Just For You"/>
 
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -40,7 +40,6 @@
 </head>
 
 
-
 <body>
 
 <div class="gtco-loader"></div>
@@ -51,8 +50,6 @@
     <div class="page-inner">
 
         <!-- IMAGE DE FOND  -->
-
-
 
 
         <header id="gtco-header" class="gtco-cover" role="banner" style="background-image: url(images/fond.jpg)">
@@ -78,8 +75,10 @@
                         <div class=" test_logo_index row row-mt-15em">
                             <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
                                 <span class="intro-text-small">Welcome to Okaïsa</span>
-                                <h1 style="font-size: 25px">Okaïsa permet de vous accompagner dans votre choix vestimentaire à tout instant.
-                                    <br><br>Offrant à l’utilisateur une assistance personnalisée en fonction de son dressing, de ses goûts et
+                                <h1 style="font-size: 25px">Okaïsa permet de vous accompagner dans votre choix
+                                    vestimentaire à tout instant.
+                                    <br><br>Offrant à l’utilisateur une assistance personnalisée en fonction de son
+                                    dressing, de ses goûts et
                                     de son style de vie.
                                 </h1>
                             </div>
@@ -98,13 +97,15 @@
                                                     <div class="row form-group">
                                                         <div class="col-md-12">
                                                             <label for="email">Username or Email</label>
-                                                            <input type="text" class="form-control" name="email" id="email">
+                                                            <input type="text" class="form-control" name="email"
+                                                                   id="email">
                                                         </div>
                                                     </div>
                                                     <div class="row form-group">
                                                         <div class="col-md-12">
                                                             <label for="password">Password</label>
-                                                            <input type="password" name="password" class="form-control" id="password">
+                                                            <input type="password" name="password" class="form-control"
+                                                                   id="password">
                                                         </div>
                                                     </div>
                                                     @if(session('message'))
@@ -121,52 +122,56 @@
                                                         </div>
                                                     </div>
 
-                                                    <a href="{{ route('password-lost') }}" style="color: black">Vous avez oublié votre de passe? Clique ici</a>
+                                                    <a href="{{ route('password-lost') }}" style="color: black">Vous
+                                                        avez oublié votre de passe? Clique ici</a>
                                                     {{ csrf_field() }}
                                                 </form>
                                             </div>
 
                                             <div class="tab-content-inner " data-content="signup">
                                                 {!! Form::open(['url' => 'register', 'method' => 'post']) !!}
-                                                    <div class="row form-group">
-                                                        <div class="col-md-12">
-                                                            <label for="email">Email</label>
-                                                            <input type="email" name="email" class="form-control" id="email">
-                                                        </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <label for="email">Email</label>
+                                                        <input type="email" name="email" class="form-control"
+                                                               id="email">
                                                     </div>
-                                                    <div class="row form-group">
-                                                        <div class="col-md-12">
-                                                            <label for="password">Password</label>
-                                                            <input type="password" name="password" class="form-control" id="password">
-                                                        </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <label for="password">Password</label>
+                                                        <input type="password" name="password" class="form-control"
+                                                               id="password">
                                                     </div>
-                                                    <div class="row form-group">
-                                                        <div class="col-md-12">
-                                                            <label for="password2">Confirmation du mot de passe</label>
-                                                            <input type="password" name="password_confirmation" class="form-control" id="password2">
-                                                        </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <label for="password2">Confirmation du mot de passe</label>
+                                                        <input type="password" name="password_confirmation"
+                                                               class="form-control" id="password2">
                                                     </div>
+                                                </div>
 
-                                                    <div class="row form-group">
-                                                        <div class="col-md-12">
-                                                            <a href="#" class="bouton2">Check & Go</a>
-                                                        </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <a href="#" class="bouton2">Check & Go</a>
                                                     </div>
+                                                </div>
 
-                                                    <div class="row form-group">
-                                                        <div class="col-md-12">
-                                                            <input type="submit" class="btn btn-primary" value="Sign up">
-                                                        </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-12">
+                                                        <input type="submit" class="btn btn-primary" value="Sign up">
                                                     </div>
-                                                    @if ($errors->any())
-                                                        <div class="alert alert-danger">
-                                                            <ul>
-                                                                @foreach ($errors->all() as $error)
-                                                                    <li>{{ $error }}</li>
-                                                                @endforeach
-                                                            </ul>
-                                                        </div>
-                                                    @endif
+                                                </div>
+                                                @if ($errors->any())
+                                                    <div class="alert alert-danger">
+                                                        <ul>
+                                                            @foreach ($errors->all() as $error)
+                                                                <li>{{ $error }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
                                                 {!! Form::close() !!}
                                             </div>
                                         </div>
@@ -174,15 +179,11 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </header>
-
     </div>
-
 
     @yield('content')
     <footer id="gtco-footer" role="contentinfo">
@@ -199,8 +200,8 @@
                     <p>Nos Réseaux Sociaux:</p>
                     <li><a href="#"><img src="images/Facebook.svg"></a></li>
                     <li><a href="#"><img src="images/Instagram.svg"></a></li>
-                    <li><a href="#"><img src="images/Pinterest.png"></i></a></li>
-                    <li><a href="#"><img src="images/Twitter.svg"></i></a></li>
+                    <li><a href="#"><img src="images/Pinterest.png"></a></li>
+                    <li><a href="#"><img src="images/Twitter.svg"></a></li>
                     </ul>
                     </p>
                 </div>
@@ -226,7 +227,7 @@
     <script src="js/magnific-popup-options.js"></script>
     <!-- Main -->
     <script src="js/main.js"></script>
-
+</div>
 </body>
 </html>
 

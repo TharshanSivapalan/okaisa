@@ -24,14 +24,16 @@
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label class="sr-only" for="subject">Subject</label>
-                                    <input type="text" id="subject" class="form-control" placeholder="Object (facultatif)">
+                                    <input type="text" id="subject" class="form-control"
+                                           placeholder="Object (facultatif)">
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label class="sr-only" for="message">Message</label>
-                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Votre message"></textarea>
+                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control"
+                                              placeholder="Votre message"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
