@@ -15,3 +15,31 @@
  * Accueil
  */
 Route::get('/', 'WelcomeController@index')->name('welcome');
+
+/**
+ * Authentification
+ */
+Route::post('/', 'AuthController@login');
+Route::get('/logout', 'AuthController@logout')->name('logout');
+Route::get('/password-lost', 'AuthController@passwordLost')->name('password-lost');
+//Route::get('/login', 'AuthController@index')->name('login');
+
+
+/**
+ * Inscription
+ */
+Route::get('/register', 'RegisterController@index')->name('register');
+Route::post('/register', 'RegisterController@createAccount');
+
+/**
+ * Profile
+ */
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/profile/update', 'ProfileController@update');
+
+/**
+ * Chatbot
+ */
+Route::get('/assistant', 'ChatbotController@index')->name('assistant');
+//Ajax pour le chatbot
+Route::get('/ajaxChat', 'ChatbotController@ajax');
